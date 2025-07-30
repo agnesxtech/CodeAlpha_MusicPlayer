@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Courier+New&family=Roboto&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="controls">
+    <label for="bg-color">Body Background:</label>
+    <select id="bg-color" onchange="changeBackground(this.value)">
+      <option value="#ffffff">White</option>
+      <option value="#fdf0f0">Peach</option>
+      <option value="#e0f7fa">Pastel Blue</option>
+      <option value="#f3e5f5">Pastel Purple</option>
+      <option value="#e8f5e9">Pastel Green</option>
+    </select>
+
+    <label for="box-color">Player Box Background:</label>
+    <select id="box-color" onchange="changeBoxColor(this.value)">
+      <option value="#ffffff">White</option>
+      <option value="#f9f9d9">Pastel Yellow</option>
+      <option value="#e0ffff">Light Cyan</option>
+      <option value="#f0e68c">Khaki</option>
+      <option value="#cceeff">Pastel Blue</option>
+    </select>
+
+    <label for="font-style">Choose Font:</label>
+    <select id="font-style" onchange="changeFont(this.value)">
+      <option value="Poppins">Poppins</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Roboto">Roboto</option>
+      <option value="Playfair Display">Playfair Display</option>
+    </select>
+  </div>
+
+  <div class="music-player">
+    <h2 id="title">Title</h2>
+    <h3 id="artist">Artist</h3>
+    <audio id="audio"></audio>
+    
+    <div class="controls">
+      <button onclick="prevSong()">⏮️</button>
+      <button onclick="togglePlay()">▶️/⏸️</button>
+      <button onclick="nextSong()">⏭️</button>
+      <button onclick="shuffleSong()">🔀 Shuffle</button>
+    </div>
+
+    <div class="progress-container">
+      <input type="range" id="progress" value="0" max="100" onchange="seek(event)">
+    </div>
+    <div id="duration">0:00 / 0:00</div>
+    <div class="volume-control">
+      Volume: <input type="range" min="0" max="1" step="0.01" onchange="changeVolume(this.value)">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
